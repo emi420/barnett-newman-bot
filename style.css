@@ -1,11 +1,18 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
   margin: 2em;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+.main {
+  text-align: center;
+}
+
+.button {
+  border: none;
+  background: yellow;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: black;
 }
