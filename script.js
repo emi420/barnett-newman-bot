@@ -14,23 +14,42 @@ const CONFIG = {
     }
 };
 
+const loadDynamicScript = (url, id, callback) => {
+  const existingScript = document.getElementById(id);
+
+  if (!existingScript) {
+    const script = document.createElement('script');
+    script.src = url; 
+    script.id = id;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (callback) callback();
+    };
+  }
+
+  if (existingScript && callback) callback();
+};
 
 class HTTP {  
   
-  get (url) {
-    const script = document.createElement("script");
-    script.src = url;
-    script.type = "text/javascript";
-    const promise = new Promise((resolve, reject) => {
+  get (url) {    
+
+    loadDynamicScript(url, 'color', () => {
+        resolve(colors);        
+    });
+    
       script.addEventListener("load", () => {
         document.body.removeChild(script);
         resolve(colors);          
       });
-    });        
-    document.body.appendChild(script);
-    return promise;
+    });*/    
+    // console.log(JSONPScript);
+    // document.body.appendChild(script);
+    //return promise;
   }
 }
+
 
 class ColorAPI {
   async getRandomPalette() {
