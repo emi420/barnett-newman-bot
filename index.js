@@ -1,45 +1,45 @@
 (() => {
   
 const ColorAPI = window._ColorAPI;
+const Canvas = window._Canvas;
 
-class Canvas {
-  constructor() {
-    this.init();
-  }
-  
-  init () {
-    this.canvas = document.getElementById("canvas");
-  }
-  
-  paint(palette) {
-    const linesNumber = Math.round(Math.random() * 10);
-    console.log("paint!", linesNumber, palette);
-  }
-}
-
-class ColorApp {
+class App {
   
   constructor() {
-    this.getRandomPaletteButton = document.getElementById("getSomeColorButton");
-    this.init();
+    this.paintButton = document.getElementById("paintButton");
     this.color = new ColorAPI();
     this.canvas = new Canvas();
   }
   
   init() {
-    this.getRandomPaletteButton.addEventListener("click", () => {
-      this.getRandomPaletteButtonHandler();
+    this.paintButton.addEventListener("click", () => {
+      this.paintButtonHandler();
     });
   }
   
-  getRandomPaletteButtonHandler() {
-    const palette = this.color.getRandomPalette();
-    this.canvas.paint(palette);
+  getRandomWidths() {
+    const widths = [];
+    for (let i = 0; i < 5; i++)
+    {
+        widths.push(Math.floor(Math.random() * 300) + 1)
+    }
+    return(widths);
+  }
+  
+  async paintButtonHandler() {
+    const palette = await this.color.getRandomPalette();
+    const widths = this.getRandomWidths();
+    
+    console.log(widths);
+    for (let width of widths) {
+      
+    }
+    // this.canvas.paint(palette);
   }
   
 }
   
-const colorApp = new ColorApp();
-colorApp.init();
+const app = new App();
+app.init();
 
 })();

@@ -8,7 +8,7 @@ const getRandomPaletteHandler = (res) => {
 const loadDynamicScript = async (url, id, callback) => {
   const existingScript = document.getElementById(id);
   
-  colors = await new Promise((resolve, reject) => {
+    const res = await new Promise((resolve, reject) => {
 
     if (!existingScript) {
       const script = document.createElement('script');
@@ -17,18 +17,17 @@ const loadDynamicScript = async (url, id, callback) => {
       document.body.appendChild(script);
 
       script.onload = () => {
-        resolve(response);
+        document.body.removeChild(script);
+        resolve();
       };
     }
   });
-  console.log('response', response);
   return response;
 };
 
 class Http {  
   
-  async get (url) {  
-    console.log('loadDynamicScript');
+  get (url) {  
     return loadDynamicScript(url);
   }
 }
