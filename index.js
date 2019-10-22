@@ -1,3 +1,5 @@
+(() => {
+  
 const ColorAPI = window._ColorAPI;
 
 class Canvas {
@@ -21,6 +23,7 @@ class ColorApp {
     this.getRandomPaletteButton = document.getElementById("getSomeColorButton");
     this.init();
     this.color = new ColorAPI();
+    this.canvas = new Canvas();
   }
   
   init() {
@@ -31,11 +34,12 @@ class ColorApp {
   
   async getRandomPaletteButtonHandler() {
     const palette = await this.color.getRandomPalette();
-    const canvas = new Canvas();
-    canvas.paint(palette);
+    this.canvas.paint(palette);
   }
   
 }
+  
+const colorApp = new ColorApp();
+colorApp.init();
 
-
-
+})();

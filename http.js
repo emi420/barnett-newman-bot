@@ -1,3 +1,5 @@
+(() => {
+  
 let colors;
 const getRandomPaletteHandler = (response) => {
   colors = response[0].colors;
@@ -29,7 +31,11 @@ class Http {
           resolve(colors);        
       });
     });
-    return promise;
+    return await promise;
   }
 }
+  
+  window._Http = Http;
+  window._getRandomPaletteHandler = getRandomPaletteHandler;
 
+})();
