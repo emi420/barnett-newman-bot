@@ -3,8 +3,6 @@ const getRandomPaletteHandler = (response) => {
   colors = response[0].colors;
 }
 
-
-
 const loadDynamicScript = (url, id, callback) => {
   const existingScript = document.getElementById(id);
 
@@ -35,4 +33,3 @@ class Http {
   }
 }
 
-export default Http;

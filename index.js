@@ -1,4 +1,4 @@
-import ColorAPI from './colorAPI';
+const ColorAPI = window._ColorAPI;
 
 class Canvas {
   constructor() {
@@ -15,7 +15,7 @@ class Canvas {
   }
 }
 
-class App {
+class ColorApp {
   
   constructor() {
     this.getRandomPaletteButton = document.getElementById("getSomeColorButton");
@@ -37,7 +37,5 @@ class App {
   
 }
 
-const app = new App();
-app.init();
 
 

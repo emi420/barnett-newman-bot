@@ -1,5 +1,7 @@
-import Http from './http';
-import CONFIG from './config';
+() => {
+  
+const Http = window._Http;
+const CONFIG = window._CONFIG;
 
 class ColorAPI {
   async getRandomPalette() {
@@ -7,3 +9,7 @@ class ColorAPI {
       return await http.get([CONFIG.COLOR_API, CONFIG.COLOR_API_ENDPOINTS.PALLETTE_RANDOM].join(''));
   }
 }
+
+window._ColorAPI = ColorAPI;
+  
+) ();
