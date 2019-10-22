@@ -1,49 +1,53 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
 
+const getRandomPaletteHandler = (response) => {
+  console.log(responsep[0].colors);
+}
+
 const CONFIG = {
   COLOR_API: "https://www.colourlovers.com/api/",
   COLOR_API_ENDPOINTS: {
-      PALLETTE_RANDOM: 'palettes/random'
+      PALLETTE_RANDOM: 'palettes/random?format=json&jsonCallback=getRandomPaletteHandler'
     }
 };
 
 
-
 class HTTP {  
-  getXML (url) {
-    var conn = new XMLHttpRequest();
-    conn.open("GET", url, false);
-    conn.setRequestHeader("Content-Type", "text/xml");
-    conn.send(null);
-    return conn.responseXML;    
+  get (url) {
+    const script = document.createElement("script");
+    script.src = url;
+    script.addEventListener("load", () => {
+      console.log("src loaded");
+    });
+    document.body.appendChild(script);
   }
 }
 
 class ColorAPI {
   getRandomPalette() {
       const http = new HTTP();
-      return http.getXML([CONFIG.COLOR_API, CONFIG.PALLETTE_RANDOM].join(''));
+      return http.get([CONFIG.COLOR_API, CONFIG.COLOR_API_ENDPOINTS.PALLETTE_RANDOM].join(''));
   }
 }
 
 class App {
   
   constructor() {
+    this.getRandomPaletteButton = document.getElementById("getSomeColorButton");
     this.init();
     this.color = new ColorAPI();
   }
   
   init() {
-    this.getColorButton = document.getElementById("getSomeColorButton");
-    this.getColorButton.addEventListener("click", () => {
-      this.getColorButtonHandler();
+    this.getRandomPaletteButton.addEventListener("click", () => {
+      this.getRandomPaletteButtonHandler();
     });
   }
   
-  getColorButtonHandler() {
+  getRandomPaletteButtonHandler() {
     const palette = this.color.getRandomPalette();
-    console.log(palette);
+    // console.log(palette);
   }
   
 }
