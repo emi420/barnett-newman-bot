@@ -1,8 +1,9 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
 
+let colors;
 const getRandomPaletteHandler = (response) => {
-  console.log(responsep[0].colors);
+  colors = response[0].colors;
 }
 
 const CONFIG = {
@@ -17,17 +18,35 @@ class HTTP {
   get (url) {
     const script = document.createElement("script");
     script.src = url;
-    script.addEventListener("load", () => {
-      console.log("src loaded");
-    });
+    const promise = new Promise(function(resolve, reject) {
+      script.addEventListener("load", () => {
+        resolve(colors);
+      });      
+    });        
     document.body.appendChild(script);
+    return promise;
   }
 }
 
 class ColorAPI {
-  getRandomPalette() {
+  async getRandomPalette() {
       const http = new HTTP();
-      return http.get([CONFIG.COLOR_API, CONFIG.COLOR_API_ENDPOINTS.PALLETTE_RANDOM].join(''));
+      return await http.get([CONFIG.COLOR_API, CONFIG.COLOR_API_ENDPOINTS.PALLETTE_RANDOM].join(''));
+  }
+}
+
+class Canvas {
+  constructor() {
+    this.init();
+  }
+  
+  init () {
+    this.canvas = document.getElementById("canvas");
+  }
+  
+  paint(palette) {
+    const linesNumber = Math.random() * 10;
+    console.log(linesNumber);
   }
 }
 
@@ -45,9 +64,10 @@ class App {
     });
   }
   
-  getRandomPaletteButtonHandler() {
-    const palette = this.color.getRandomPalette();
-    // console.log(palette);
+  async getRandomPaletteButtonHandler() {
+    const palette = await this.color.getRandomPalette();
+    const canvas = new Canvas();
+    canvas.paint(palette);
   }
   
 }

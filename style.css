@@ -15,4 +15,13 @@ body {
   padding: 1rem;
   font-size: 1.2rem;
   color: black;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 3px 3px 0 #eeee00;
+}
+
+.button:active {
+  box-shadow: 1px 1px 0 #eeee00;
 }
