@@ -3,6 +3,7 @@
 
 let colors;
 const getRandomPaletteHandler = (response) => {
+  console.log('HERE');
   colors = response[0].colors;
 }
 
@@ -15,13 +16,16 @@ const CONFIG = {
 
 
 class HTTP {  
+  
   get (url) {
     const script = document.createElement("script");
     script.src = url;
-    const promise = new Promise(function(resolve, reject) {
+    script.type = "text/javascript";
+    const promise = new Promise((resolve, reject) => {
       script.addEventListener("load", () => {
-        resolve(colors);
-      });      
+        document.body.removeChild(script);
+        resolve(colors);          
+      });
     });        
     document.body.appendChild(script);
     return promise;
@@ -45,8 +49,8 @@ class Canvas {
   }
   
   paint(palette) {
-    const linesNumber = Math.random() * 10;
-    console.log(linesNumber);
+    const linesNumber = Math.round(Math.random() * 10);
+    console.log("paint!", linesNumber, palette);
   }
 }
 
