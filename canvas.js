@@ -1,18 +1,28 @@
 (() => {
 
 class Canvas {
-  constructor() {
-    this.init();
+  constructor(canvasElement) {
+    this.canvas = canvasElement;
+    this.bands = this.canvas.getElementsByClassName("band");
+  }
+   
+  paint(palette, widths) {
+    console.log("paint!", palette, widths);
+    for (let i = 0; i < 5; i++) {
+      this.bands[i].style.width = widths[i];
+      this.bands[i].style.backgroundColor = "#" + palette[i];
+    }
   }
   
-  init () {
-    this.canvas = document.getElementById("canvas");
+  getRandomWidths() {
+    const widths = [];
+    for (let i = 0; i < 5; i++)
+    {
+        widths.push(Math.floor(Math.random() * 300) + 1)
+    }
+    return(widths);
   }
   
-  paint(palette) {
-    const linesNumber = Math.round(Math.random() * 100);
-    console.log("paint!", linesNumber, palette);
-  }
 }
   
 window._Canvas = Canvas;
