@@ -32,8 +32,8 @@ class ColorApp {
     });
   }
   
-  async getRandomPaletteButtonHandler() {
-    const palette = await this.color.getRandomPalette();
+  getRandomPaletteButtonHandler() {
+    const palette = this.color.getRandomPalette();
     this.canvas.paint(palette);
   }
   
