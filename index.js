@@ -21,8 +21,10 @@ class App {
 
   async paintButtonHandler() {
     this.paintButton.disabled = true;
+    this.canvas.loading();
     const palette = await this.color.getRandomPalette();
     const widths = this.canvas.getRandomWidths();
+    this.canvas.ready();
     this.canvas.paint(palette, widths);
     this.paintButton.disabled = false;
   }
