@@ -27,16 +27,25 @@ body {
   box-shadow: 1px 1px 0 #eeee00;
 }
 
+
+.button[disabled] {
+ background: #ddd; 
+}
+
+.button[disabled]:hover {
+  box-shadow: none;
+}
+
 .canvas {
   border: 5px solid #ddd;
   background: white;
   margin: 0 auto;
   min-height: 400px;
   position: relative;
-  border: 1px solid red;
-  width: 20%;
+  display: flex;
 }
 
 .band {
   min-height: 100%;
+  width: 20%;
 }

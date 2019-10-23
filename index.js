@@ -15,13 +15,16 @@ class App {
     this.paintButton.addEventListener("click", () => {
       this.paintButtonHandler();
     });
+    this.paintButton.disabled = false;
   }
   
 
   async paintButtonHandler() {
+    this.paintButton.disabled = true;
     const palette = await this.color.getRandomPalette();
     const widths = this.canvas.getRandomWidths();
     this.canvas.paint(palette, widths);
+    this.paintButton.disabled = false;
   }
   
 }
