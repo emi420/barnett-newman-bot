@@ -7,7 +7,10 @@ class ColorAPI {
   async getRandomPalette() {
       const http = new Http();
       const result = await http.get([CONFIG.COLOR_API, CONFIG.COLOR_API_ENDPOINTS.PALLETTE_RANDOM].join(''));
-      return result[0].colors;        
+      return {
+        colors: result[0].colors,
+        copy: result[0].url
+      }
   }
 }
 

@@ -50,3 +50,8 @@ body {
   min-height: 100%;
   width: 25%;
 }
+
+.palletteCopy {
+  font-size: .8rem;
+  display: none;
+}

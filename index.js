@@ -8,7 +8,10 @@ class App {
   constructor() {
     this.paintButton = document.getElementById("paintButton");
     this.color = new ColorAPI();
-    this.canvas = new Canvas(document.getElementById("canvas"));
+    this.canvas = new Canvas(
+      document.getElementById("canvas"),
+      document.getElementById("copy")
+    );
   }
   
   init() {
@@ -25,7 +28,8 @@ class App {
     const palette = await this.color.getRandomPalette();
     const widths = this.canvas.getRandomWidths();
     this.canvas.ready();
-    this.canvas.paint(palette, widths);
+    this.canvas.paint(palette.colors, widths);
+    this.canvas.setCopy(palette.copy);
     this.paintButton.disabled = false;
   }
   
