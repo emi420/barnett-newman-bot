@@ -33,6 +33,7 @@ body {
 
 .button[disabled] {
  background: #ddd; 
+ color: white;
 }
 
 .button[disabled]:hover {

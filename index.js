@@ -24,13 +24,13 @@ class App {
     this.paintButton.disabled = false;
   }
   
-  disableButtons(value) {
+  disableButtons(value = true) {
     this.paintButton.disabled = value;
     this.remixButton.disabled = value;
   }
 
   async paintButtonHandler() {
-    this.disableButtons(true);
+    this.disableButtons();
     this.canvas.loading();
     this.canvas.palette = await this.color.getRandomPalette();
     this.canvas.widths = this.canvas.getRandomWidths();
@@ -45,7 +45,7 @@ class App {
   doPaint() {
     this.canvas.ready();
     this.canvas.paint();
-    this.canvas.setCopy(this.palette.copy);
+    this.canvas.setCopy(this.canvas.palette.copy);
     this.disableButtons(false);
   }
   

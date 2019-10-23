@@ -7,6 +7,8 @@ class Canvas {
     this.copy = copyElement;
     this.copyLink = this.copy.getElementsByClassName("copyLink")[0];
     this.bands = this.canvas.getElementsByClassName("band");
+    this.palette = [];
+    this.widths = [];
   }
   
   getRandomColor() {
@@ -47,8 +49,12 @@ class Canvas {
           this.getRandomColor()
         );
       }
+      this.palette = {
+        colors: randomColors
+      };
+      this.widths = this.getRandomWidths();
       this.canvas.style.backgroundColor = `#${this.getRandomColor()}`;
-      this.paint(randomColors, this.getRandomWidths());      
+      this.paint();      
     }, 50);
   }
   
@@ -57,8 +63,8 @@ class Canvas {
     this.copy.style.display = "block";
   }
    
-  paint() {    
-    const paletteCopy = [...this.palette];
+  paint() {
+    const paletteCopy = [...this.palette.colors];
     const widths = this.widths;
     const backgroundNumber = this.getRandomNumber(4);
     this.canvas.style.backgroundColor = `#${paletteCopy[backgroundNumber]}`;
