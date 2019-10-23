@@ -9,7 +9,7 @@ const loadDynamicScript = async (url, id, callback) => {
   const existingScript = document.getElementById(id);
     const res = await new Promise((resolve, reject) => {
     if (!existingScript) {
-      const script = document.createElement('script');
+      const script = document.createElement("script");
       script.src = url; 
       script.id = id;
       document.body.appendChild(script);
