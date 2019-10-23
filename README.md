@@ -1,6 +1,6 @@
 Welcome to Barnett Newman Bot
 =================
 
-Click `Get some color` to see me in action.
+Click `Get some color!` to see me in action.
 
-Made by Em
+Made by [emi420](https://github.com/emi420)

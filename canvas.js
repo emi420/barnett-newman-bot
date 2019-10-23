@@ -59,14 +59,15 @@ class Canvas {
   }
    
   paint(palette, widths) {    
+    const paletteCopy = [...palette];
     const backgroundNumber = this.getRandomNumber(4);
-    this.canvas.style.backgroundColor = `#${palette[backgroundNumber]}`;
-    palette.splice(backgroundNumber, 1);
+    this.canvas.style.backgroundColor = `#${paletteCopy[backgroundNumber]}`;
+    paletteCopy.splice(backgroundNumber, 1);
     
     for (let i = 0; i < 4; i++) {
       this.bands[i].style.width = `${widths[i]}%`;
       this.bands[i].style.marginLeft = `${25 - widths[i]}%`;
-      this.bands[i].style.backgroundColor = `#${palette[this.getRandomNumber(4)]}`;        
+      this.bands[i].style.backgroundColor = `#${paletteCopy[this.getRandomNumber(3)]}`;        
     }
   }
   

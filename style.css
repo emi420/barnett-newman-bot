@@ -14,7 +14,13 @@ body {
   font-size: 1.2rem;
   color: black;
   cursor: pointer;
-  margin-bottom: 30px;
+}
+
+.buttonSmall {
+  padding: .5rem;
+  font-size: .8rem;  
+  background: #EC6C41;
+  color: white;
 }
 
 .button:hover {
@@ -36,7 +42,7 @@ body {
 .canvas {
   border: 20px solid #eee;
   background: white;
-  margin: 0 auto;
+  margin: 20px auto;
   min-height: 400px;
   display: flex;
   max-width: 750px;
