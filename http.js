@@ -1,7 +1,7 @@
 (() => {
   
 let response;
-const getRandomPaletteHandler = (res) => {
+const _JSONPCallback = (res) => {
   response = res;
 }
 
@@ -29,7 +29,7 @@ class Http {
 }
   
 window._Http = Http;
-window._getRandomPaletteHandler = getRandomPaletteHandler;
+window._JSONPCallback = _JSONPCallback;
 
 })();
 
