@@ -6,15 +6,15 @@ const Canvas = window._Canvas;
 class App {
   
   constructor() {
+  }
+  
+  init() {
     this.paintButton = document.getElementById("paintButton");
     this.color = new ColorAPI();
     this.canvas = new Canvas(
       document.getElementById("canvas"),
       document.getElementById("copy")
     );
-  }
-  
-  init() {
     this.paintButton.addEventListener("click", () => {
       this.paintButtonHandler();
     });

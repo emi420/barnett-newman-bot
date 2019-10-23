@@ -34,13 +34,13 @@ body {
 }
 
 .canvas {
-  border: 5px solid #ddd;
+  border: 20px solid #eee;
   background: white;
   margin: 0 auto;
   min-height: 400px;
-  position: relative;
   display: flex;
   max-width: 750px;
+  box-shadow: 1px 1px 0 #ccc;
 }
 
 .band {

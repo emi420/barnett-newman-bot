@@ -2,6 +2,7 @@
 
 
 class Canvas {
+  
   constructor(canvasElement, copyElement) {
     this.canvas = canvasElement;
     this.copy = copyElement;
@@ -23,7 +24,7 @@ class Canvas {
     for (let i = 0; i < 4; i++)
     {
         widths.push(
-          Math.floor(Math.random() * 25) + 1  
+          this.getRandomNumber(25)
         )
     }
     return(widths);
