@@ -47,11 +47,18 @@ body {
 }
 
 .band {
+  transition: all .25s ease-in;
+  
   min-height: 100%;
   width: 25%;
 }
 
 .palletteCopy {
+  color: #999;
   font-size: .8rem;
   display: none;
+}
+
+.palletteCopy a {
+  color: #999;
 }
