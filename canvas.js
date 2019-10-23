@@ -33,7 +33,13 @@ class Canvas {
     return Math.floor(Math.random() * max) + 1;
   }
   
+  setCopy(copy) {
+    this.copyLink.href = copy.url;
+    this.copyLink.innerHTML = copy.title;
+  }
+  
   loading() {
+    this.copy.style.display = 'hidden';
     this.loadingInterval = setInterval(() => {
       let randomColors = [];
       for (let i = 0; i < 4; i++) {
@@ -48,6 +54,7 @@ class Canvas {
   
   ready() {
     clearInterval(this.loadingInterval);
+    this.copy.style.display = 'block';
   }
    
   paint(palette, widths) {    
@@ -63,12 +70,6 @@ class Canvas {
       this.bands[i].style.marginLeft = `${25 - widths[i]}%`;
       this.bands[i].style.backgroundColor = `#${palette[n]}`;        
     }
-  }
-  
-  setCopy(copy) {
-    this.copy.style.display = 'block';
-    this.copyLink.href = copy.url;
-    this.copyLink.innerHTML = copy.title;
   }
   
 }
