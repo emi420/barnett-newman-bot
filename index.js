@@ -5,8 +5,7 @@ const Canvas = window._Canvas;
 
 class App {
   
-  constructor() {
-  }
+  constructor() {}
   
   init() {
     this.paintButton = document.getElementById("paintButton");
@@ -23,30 +22,31 @@ class App {
       this.remixButtonHandler();
     });
     this.paintButton.disabled = false;
-    this.remixButton.disabled = true;
   }
   
+  disableButtons(value) {
+    this.paintButton.disabled = value;
+    this.remixButton.disabled = value;
+  }
 
   async paintButtonHandler() {
-    this.paintButton.disabled = true;
-    this.remixButton.disabled = true;
+    this.disableButtons(true);
     this.canvas.loading();
-    this.palette = await this.color.getRandomPalette();
-    this.widths = this.canvas.getRandomWidths();
+    this.canvas.palette = await this.color.getRandomPalette();
+    this.canvas.widths = this.canvas.getRandomWidths();
     this.doPaint();
   }
 
   remixButtonHandler() {
-    this.widths = this.canvas.getRandomWidths();
+    this.canvas.widths = this.canvas.getRandomWidths();
     this.doPaint();
   }
 
   doPaint() {
     this.canvas.ready();
-    this.canvas.paint(this.palette.colors, this.widths);
+    this.canvas.paint();
     this.canvas.setCopy(this.palette.copy);
-    this.paintButton.disabled = false;
-    this.remixButton.disabled = false;
+    this.disableButtons(false);
   }
   
 }

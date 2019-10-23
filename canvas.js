@@ -1,6 +1,5 @@
 (() => {
 
-
 class Canvas {
   
   constructor(canvasElement, copyElement) {
@@ -11,10 +10,10 @@ class Canvas {
   }
   
   getRandomColor() {
-    const letters = "0123456789ABCDEF";
+    const letters = "0123456789ABCDEE";
     let color = "";
     for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+      color += letters[this.getRandomNumber(16)];
     }
     return color;
   }
@@ -58,12 +57,12 @@ class Canvas {
     this.copy.style.display = "block";
   }
    
-  paint(palette, widths) {    
-    const paletteCopy = [...palette];
+  paint() {    
+    const paletteCopy = [...this.palette];
+    const widths = this.widths;
     const backgroundNumber = this.getRandomNumber(4);
     this.canvas.style.backgroundColor = `#${paletteCopy[backgroundNumber]}`;
     paletteCopy.splice(backgroundNumber, 1);
-    
     for (let i = 0; i < 4; i++) {
       this.bands[i].style.width = `${widths[i]}%`;
       this.bands[i].style.marginLeft = `${25 - widths[i]}%`;
