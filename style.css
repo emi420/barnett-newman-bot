@@ -16,13 +16,6 @@ body {
   cursor: pointer;
 }
 
-.buttonSmall {
-  padding: .5rem;
-  font-size: .8rem;  
-  background: #EC6C41;
-  color: white;
-}
-
 .button:hover {
   box-shadow: 3px 3px 0 #eeee00;
 }
@@ -39,6 +32,19 @@ body {
 .button[disabled]:hover {
   box-shadow: none;
 }
+
+.buttonSmall {
+  padding: .5rem;
+  font-size: .7rem;  
+  background: #7933B2;
+  color: white;
+  text-transform: uppercase;
+}
+
+.buttonSmall:hover {
+  box-shadow: 2px 2px 0 #eeee00;
+}
+
 
 .canvas {
   border: 20px solid #eee;
