@@ -1,7 +1,9 @@
 Welcome to Barnett Newman Bot
 =================
 
-[https://harmless-leopard.glitch.me/](https://harmless-leopard.glitch.me/)
+Notice: this app has stopped working after the re-launch of Colour Lovers :( looking for a fresh API for getting colors now ...
+
+~[https://harmless-leopard.glitch.me/](https://harmless-leopard.glitch.me/)~
 
 Click `Get some color!` to see me in action.
 
